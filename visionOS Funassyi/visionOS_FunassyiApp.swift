@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct visionOS_FunassyiApp: App {
+    @State var isShowing = false
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView(isShowing: $isShowing)
         }
+        WindowGroup(id: "funassyi") {
+            FunassyiView()
+        }.windowStyle(.volumetric)
     }
 }
